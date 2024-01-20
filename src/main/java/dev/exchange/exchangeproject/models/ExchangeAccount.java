@@ -14,12 +14,14 @@ import java.util.List;
 public class ExchangeAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    //private String id;
+    private String exchangeAccountId;
 
     @OneToMany
     private List<BankAccount> bankAccounts;
 
     @OneToMany
-    private List<Transaction> transactions;
+    //private List<Transaction> transactions;
+    private List<Transaction> transactionsList;
     private Double balance;
 }

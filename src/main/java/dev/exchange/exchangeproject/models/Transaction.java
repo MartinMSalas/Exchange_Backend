@@ -1,12 +1,14 @@
 package dev.exchange.exchangeproject.models;
 
+import dev.exchange.exchangeproject.models.enums.TransactionStatus;
+import dev.exchange.exchangeproject.models.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
@@ -15,12 +17,15 @@ import java.util.Date;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    //private String id;
+    private String transactionId;
 
     @Temporal(TemporalType.DATE)
-    private Date date;
+    private LocalDateTime dateAndTime;
 
-    private String type;
+    //private String type;
+    @Enumerated(EnumType.STRING)
+    private TransactionType type;
 
     private BigDecimal amount;
 
@@ -31,6 +36,6 @@ public class Transaction {
     private String destinationAccountId;
 
     @Enumerated(EnumType.STRING)
-    private Enum status;
+    private TransactionStatus status;
 
 }
