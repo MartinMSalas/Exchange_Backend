@@ -45,13 +45,27 @@ public class BankAccountServiceImpl implements BankAccountService {
 
     @Override
     public Optional<BankAccountDTO> updateBankAccount(String bankAccountId, BankAccountDTO bankAccountDto) {
-        Optional<BankAccount> bankAccount = bankAccountRepository.findById(bankAccountId);
-        if(bankAccount.isPresent()){
-            BankAccount bankAccount1 = bankAccountMapper.bankAccountDtoToBankAccount(bankAccountDto);
+        Optional<BankAccount> bankAccountOptional = bankAccountRepository.findById(bankAccountId);
+        if(bankAccountOptional.isPresent()){
+
+            BankAccount bankAccount = bankAccountOptional.get();
+            if(bankAccountDto.getAccountNumber() != null)
+                bankAccount.setAccountNumber(bankAccountDto.getAccountNumber());
+            if(bankAccountDto.getAccountDni() != null)
+                bankAccount.setAccountDni(bankAccountDto.getAccountDni());
+            if(bankAccountDto.getAccountType() != null)
+                bankAccount.setAccountType(bankAccountDto.getAccountType());
+            if(bankAccountDto.getBankAddress() != null)
+                bankAccount.setBankAddress(bankAccountDto.getBankAddress());
+            if(bankAccountDto.getBankName() != null)
+                bankAccount.setBankName(bankAccountDto.getBankName());
+            if(bankAccountDto.getSwiftCode() != null)
+                bankAccount.setSwiftCode(bankAccountDto.getSwiftCode());
+
 
 
             BankAccountDTO bankAccountDTO = bankAccountMapper.bankAccountToBankAccountDTO(bankAccountRepository.
-                    save(bankAccount1));
+                    save(bankAccount));
             return Optional.of(bankAccountDTO);
         }
 

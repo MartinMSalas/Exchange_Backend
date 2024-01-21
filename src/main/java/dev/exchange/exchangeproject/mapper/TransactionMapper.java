@@ -11,7 +11,7 @@ import java.util.List;
 
 @Mapper
 public interface TransactionMapper {
-    Transaction transactionDtoToTransaction(BankAccountDTO bankAccountDTO);
+    Transaction transactionDtoToTransaction(TransactionDTO transactionDTO);
 
     TransactionDTO transactionToTransactionDTO(Transaction transaction);
 

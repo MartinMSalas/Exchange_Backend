@@ -38,15 +38,13 @@ public class BankAccountServiceImplTest {
     private BankAccountServiceImpl bankAccountService;
 
 
-    private BankAccountMapper bankAccountMapper = Mappers.getMapper(BankAccountMapper.class);
+    private final BankAccountMapper bankAccountMapper = Mappers.getMapper(BankAccountMapper.class);
     @Mock
     private BankAccountRepository bankAccountRepository;
 
 
 
-    public void init() {
-        bankAccountMapper = Mappers.getMapper(BankAccountMapper.class);
-    }
+
 
     @BeforeEach
     void setUp() {
