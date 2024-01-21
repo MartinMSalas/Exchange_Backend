@@ -1,7 +1,8 @@
 package dev.exchange.exchangeproject.models;
 
-import dev.exchange.exchangeproject.models.enums.TransactionStatus;
+
 import dev.exchange.exchangeproject.models.enums.TransactionType;
+import dev.exchange.exchangeproject.models.enums.TransactionStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +10,8 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+
 
 @Entity
 @AllArgsConstructor
