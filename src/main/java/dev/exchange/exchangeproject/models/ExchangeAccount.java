@@ -14,8 +14,7 @@ import java.util.List;
 public class ExchangeAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    //private String id;
-    private String exchangeAccountId;
+    private String id;
 
     @OneToMany
     private List<BankAccount> bankAccounts;

@@ -1,15 +1,12 @@
 package dev.exchange.exchangeproject.service;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.exchange.exchangeproject.dto.BankAccountDTO;
 import dev.exchange.exchangeproject.mapper.BankAccountMapper;
 import dev.exchange.exchangeproject.models.BankAccount;
 import dev.exchange.exchangeproject.models.enums.AccountType;
 import dev.exchange.exchangeproject.repository.BankAccountRepository;
-import dev.exchange.exchangeproject.service.BankAccountServiceImpl;
 import jakarta.validation.ConstraintViolationException;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,10 +15,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import java.util.Optional;
 
@@ -35,7 +28,7 @@ public class BankAccountServiceImplTest {
 
 
     @InjectMocks
-    private BankAccountServiceImpl bankAccountService;
+    private BankAccountService bankAccountService;
 
 
     private final BankAccountMapper bankAccountMapper = Mappers.getMapper(BankAccountMapper.class);
@@ -50,7 +43,7 @@ public class BankAccountServiceImplTest {
     void setUp() {
 
         MockitoAnnotations.openMocks(this);
-        bankAccountService = new BankAccountServiceImpl( bankAccountRepository,bankAccountMapper);
+        bankAccountService = new BankAccountService( bankAccountRepository,bankAccountMapper);
     }
 
     BankAccountDTO bankAccountDto = BankAccountDTO.builder()

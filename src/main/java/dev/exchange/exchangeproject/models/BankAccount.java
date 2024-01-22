@@ -20,8 +20,7 @@ import java.util.List;
 public class BankAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    //private String id;
-    private String bankAccountId;
+    private String id;
 
     @NotBlank
     @NotNull
@@ -39,14 +38,22 @@ public class BankAccount {
     private String swiftCode;
 
     @Enumerated(EnumType.STRING)
-    //private Enum accountType;
     private AccountType accountType;
 
     private Long accountDni;
-//
-//    @ElementCollection
-//    @CollectionTable(name = "account_transactions")
-//    private List<Transaction> transactions;
 
+    @ElementCollection
+    @CollectionTable(name = "account_transactions")
+    private List<Transaction> transactions;
+
+    public BankAccount (String accountNumber, String bankName, String bankAddress, String swiftCode, AccountType accountType, Long accountDni, List<Transaction> transactions) {
+        this.accountNumber = accountNumber;
+        this.bankName = bankName;
+        this.bankAddress = bankAddress;
+        this.swiftCode = swiftCode;
+        this.accountType = accountType;
+        this.accountDni = accountDni;
+        this.transactions = transactions;
+    }
 
 }
