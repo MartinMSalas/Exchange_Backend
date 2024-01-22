@@ -1,9 +1,9 @@
-package dev.exchange.exchangeproject.models;
+package dev.exchange.exchangeproject.dto;
 
-
-import dev.exchange.exchangeproject.models.enums.TransactionType;
 import dev.exchange.exchangeproject.models.enums.TransactionStatus;
-import jakarta.persistence.*;
+import dev.exchange.exchangeproject.models.enums.TransactionType;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,35 +12,26 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-
-
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 @Builder
-public class Transaction {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    //private String id;
+@NoArgsConstructor
+@AllArgsConstructor
+public class TransactionDTO {
     private String transactionId;
-
-    @Temporal(TemporalType.DATE)
     private LocalDateTime dateAndTime;
-
-    //private String type;
-    @Enumerated(EnumType.STRING)
     private TransactionType type;
 
+    @NotNull(message = "Amount cannot be null")
+    @Positive(message = "Amount must be positive")
     private BigDecimal amount;
 
     private String description;
 
+    @NotNull(message = "Source Account ID cannot be null")
     private String sourceAccountId;
 
+    @NotNull(message = "Destination Account ID cannot be null")
     private String destinationAccountId;
 
-    @Enumerated(EnumType.STRING)
     private TransactionStatus status;
-
 }
