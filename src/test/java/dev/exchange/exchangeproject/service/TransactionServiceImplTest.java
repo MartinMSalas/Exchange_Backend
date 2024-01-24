@@ -110,17 +110,28 @@ class TransactionServiceImplTest {
     }
 
     @Test
-    void getTransactionByDestinationAccount() {
+    void test_getTransactionByDestinationAccount_success() {
+        when(transactionRepository.findByDestinationAccountId(any())).thenReturn(Optional.of(List.of(transaction)));
+
+        Optional<List<TransactionDTO>> transactionDTO = transactionService.getTransactionByDestinationAccount(transactionDto.getDestinationAccountId());
+        assertNotNull(transactionDTO);
+        assertEquals(transactionDto.getTransactionId(), transactionDTO.get().get(0).getTransactionId());
 
     }
 
     @Test
-    void getTransactionBySourceAccountAndDestinationAccount() {
-
+    void test_getTransactionBySourceAccountAndDestinationAccount_success() {
+        when(transactionRepository.findBySourceAccountIdAndDestinationAccountId(any(),any())).thenReturn(Optional.of(List.of(transaction)));
+        Optional<List<TransactionDTO>> transactionDTO = transactionService.getTransactionBySourceAccountAndDestinationAccount(transactionDto.getSourceAccountId(),transactionDto.getDestinationAccountId());
+        assertNotNull(transactionDTO);
+        assertEquals(transactionDto.getTransactionId(), transactionDTO.get().get(0).getTransactionId());
     }
 
     @Test
     void getTransactionByStatus() {
+        when(transactionRepository.findByStatus(any())).thenReturn(Optional.of(List.of(transaction)));
+
+
 
     }
 

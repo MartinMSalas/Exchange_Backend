@@ -1,6 +1,7 @@
 package dev.exchange.exchangeproject.service;
 
 import dev.exchange.exchangeproject.dto.TransactionDTO;
+import dev.exchange.exchangeproject.models.enums.TransactionStatus;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -23,7 +24,7 @@ public interface TransactionService {
 
 Optional<List<TransactionDTO>> getTransactionBySourceAccountAndDestinationAccount(String sourceAccountNumber, String destinationAccountNumber);
 
-Optional<List<TransactionDTO>> getTransactionByStatus(String status);
+Optional<List<TransactionDTO>> getTransactionByStatus(TransactionStatus status);
 
 Optional<List<TransactionDTO>> getTransactionByType(String type);
 

@@ -3,11 +3,11 @@ package dev.exchange.exchangeproject.service;
 import dev.exchange.exchangeproject.dto.TransactionDTO;
 import dev.exchange.exchangeproject.mapper.TransactionMapper;
 import dev.exchange.exchangeproject.models.Transaction;
+import dev.exchange.exchangeproject.models.enums.TransactionStatus;
 import dev.exchange.exchangeproject.repository.TransactionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
@@ -101,21 +101,41 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public Optional<List<TransactionDTO>> getTransactionBySourceAccount(String accountNumber) {
 
+        Optional<List<Transaction>> transactions = transactionRepository.findBySourceAccountId(accountNumber);
+        if(transactions.isPresent()){
+            List<TransactionDTO> transactionDTOS = transactionMapper.transactionListToTransactionDtoList(transactions.get());
+            return Optional.of(transactionDTOS);
+        }
+
+
         return Optional.empty();
     }
 
     @Override
     public Optional<List<TransactionDTO>> getTransactionByDestinationAccount(String accountNumber) {
+        Optional<List<Transaction>> transactions = transactionRepository.findByDestinationAccountId(accountNumber);
+        if(transactions.isPresent()){
+            List<TransactionDTO> transactionDTOS = transactionMapper.transactionListToTransactionDtoList(transactions.get());
+            return Optional.of(transactionDTOS);
+        }
+
         return Optional.empty();
     }
 
     @Override
     public Optional<List<TransactionDTO>> getTransactionBySourceAccountAndDestinationAccount(String sourceAccountNumber, String destinationAccountNumber) {
+        Optional<List<Transaction>> transactions =transactionRepository.findBySourceAccountIdAndDestinationAccountId(sourceAccountNumber,destinationAccountNumber);
+        if(transactions.isPresent()){
+            List<TransactionDTO> transactionDTOS = transactionMapper.transactionListToTransactionDtoList(transactions.get());
+            return Optional.of(transactionDTOS);
+        }
+
         return Optional.empty();
     }
 
     @Override
-    public Optional<List<TransactionDTO>> getTransactionByStatus(String status) {
+    public Optional<List<TransactionDTO>> getTransactionByStatus(TransactionStatus status) {
+
         return Optional.empty();
     }
 
