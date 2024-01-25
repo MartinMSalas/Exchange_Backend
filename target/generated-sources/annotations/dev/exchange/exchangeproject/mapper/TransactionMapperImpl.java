@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-01-21T18:48:01-0300",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.10 (Amazon.com Inc.)"
+    date = "2024-01-23T17:15:07-0600",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.37.0.v20240103-0614, environment: Java 17.0.9 (Eclipse Adoptium)"
 )
 @Component
 public class TransactionMapperImpl implements TransactionMapper {
@@ -23,14 +23,14 @@ public class TransactionMapperImpl implements TransactionMapper {
 
         Transaction.TransactionBuilder transaction = Transaction.builder();
 
-        transaction.transactionId( transactionDTO.getTransactionId() );
-        transaction.dateAndTime( transactionDTO.getDateAndTime() );
-        transaction.type( transactionDTO.getType() );
         transaction.amount( transactionDTO.getAmount() );
+        transaction.dateAndTime( transactionDTO.getDateAndTime() );
         transaction.description( transactionDTO.getDescription() );
-        transaction.sourceAccountId( transactionDTO.getSourceAccountId() );
         transaction.destinationAccountId( transactionDTO.getDestinationAccountId() );
+        transaction.sourceAccountId( transactionDTO.getSourceAccountId() );
         transaction.status( transactionDTO.getStatus() );
+        transaction.transactionId( transactionDTO.getTransactionId() );
+        transaction.type( transactionDTO.getType() );
 
         return transaction.build();
     }
@@ -43,14 +43,14 @@ public class TransactionMapperImpl implements TransactionMapper {
 
         TransactionDTO.TransactionDTOBuilder transactionDTO = TransactionDTO.builder();
 
-        transactionDTO.transactionId( transaction.getTransactionId() );
-        transactionDTO.dateAndTime( transaction.getDateAndTime() );
-        transactionDTO.type( transaction.getType() );
         transactionDTO.amount( transaction.getAmount() );
+        transactionDTO.dateAndTime( transaction.getDateAndTime() );
         transactionDTO.description( transaction.getDescription() );
-        transactionDTO.sourceAccountId( transaction.getSourceAccountId() );
         transactionDTO.destinationAccountId( transaction.getDestinationAccountId() );
+        transactionDTO.sourceAccountId( transaction.getSourceAccountId() );
         transactionDTO.status( transaction.getStatus() );
+        transactionDTO.transactionId( transaction.getTransactionId() );
+        transactionDTO.type( transaction.getType() );
 
         return transactionDTO.build();
     }

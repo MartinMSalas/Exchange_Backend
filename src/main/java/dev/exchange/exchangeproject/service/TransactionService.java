@@ -1,13 +1,14 @@
 package dev.exchange.exchangeproject.service;
 
 import dev.exchange.exchangeproject.dto.TransactionDTO;
+import dev.exchange.exchangeproject.models.Transaction;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 public interface TransactionService {
-    Optional<TransactionDTO> createTransaction(TransactionDTO transactionDto);
+    Optional<TransactionDTO> createTransaction(Transaction transaction);
 
     Optional<TransactionDTO> getTransactionById(String id);
 
@@ -21,13 +22,13 @@ public interface TransactionService {
 
     Optional<List<TransactionDTO>> getTransactionByDestinationAccount(String accountNumber);
 
-Optional<List<TransactionDTO>> getTransactionBySourceAccountAndDestinationAccount(String sourceAccountNumber, String destinationAccountNumber);
+    Optional<List<TransactionDTO>> getTransactionBySourceAccountAndDestinationAccount(String sourceAccountNumber, String destinationAccountNumber);
 
-Optional<List<TransactionDTO>> getTransactionByStatus(String status);
+    Optional<List<TransactionDTO>> getTransactionByStatus(String status);
 
-Optional<List<TransactionDTO>> getTransactionByType(String type);
+    Optional<List<TransactionDTO>> getTransactionByType(String type);
 
-Optional<List<TransactionDTO>> getTransactionByDateAndTime(String dateAndTime);
+    Optional<List<TransactionDTO>> getTransactionByDateAndTime(String dateAndTime);
 
-Optional<List<TransactionDTO>> getTransactionByAmount(BigDecimal amount);
+    Optional<List<TransactionDTO>> getTransactionByAmount(BigDecimal amount);
 }
