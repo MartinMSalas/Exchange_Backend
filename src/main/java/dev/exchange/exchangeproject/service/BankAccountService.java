@@ -2,8 +2,8 @@ package dev.exchange.exchangeproject.service;
 
 import dev.exchange.exchangeproject.dto.BankAccountDTO;
 import dev.exchange.exchangeproject.exception.BankAccountNotFoundException;
-import dev.exchange.exchangeproject.inputs.CreateBankAccountInput;
-import dev.exchange.exchangeproject.inputs.UpdateBankAccountInput;
+import dev.exchange.exchangeproject.inputs.BankAccount.CreateBankAccountInput;
+import dev.exchange.exchangeproject.inputs.BankAccount.UpdateBankAccountInput;
 import dev.exchange.exchangeproject.mapper.BankAccountMapper;
 import dev.exchange.exchangeproject.models.BankAccount;
 import dev.exchange.exchangeproject.models.Transaction;

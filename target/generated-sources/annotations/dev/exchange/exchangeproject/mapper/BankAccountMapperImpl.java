@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-01-21T18:46:08-0300",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.10 (Amazon.com Inc.)"
+    date = "2024-01-23T17:15:07-0600",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.37.0.v20240103-0614, environment: Java 17.0.9 (Eclipse Adoptium)"
 )
 @Component
 public class BankAccountMapperImpl implements BankAccountMapper {
@@ -21,13 +21,12 @@ public class BankAccountMapperImpl implements BankAccountMapper {
 
         BankAccount.BankAccountBuilder bankAccount = BankAccount.builder();
 
-        bankAccount.bankAccountId( bankAccountDTO.getBankAccountId() );
-        bankAccount.accountNumber( bankAccountDTO.getAccountNumber() );
-        bankAccount.bankName( bankAccountDTO.getBankName() );
-        bankAccount.bankAddress( bankAccountDTO.getBankAddress() );
-        bankAccount.swiftCode( bankAccountDTO.getSwiftCode() );
-        bankAccount.accountType( bankAccountDTO.getAccountType() );
         bankAccount.accountDni( bankAccountDTO.getAccountDni() );
+        bankAccount.accountNumber( bankAccountDTO.getAccountNumber() );
+        bankAccount.accountType( bankAccountDTO.getAccountType() );
+        bankAccount.bankAddress( bankAccountDTO.getBankAddress() );
+        bankAccount.bankName( bankAccountDTO.getBankName() );
+        bankAccount.swiftCode( bankAccountDTO.getSwiftCode() );
 
         return bankAccount.build();
     }
@@ -40,13 +39,12 @@ public class BankAccountMapperImpl implements BankAccountMapper {
 
         BankAccountDTO.BankAccountDTOBuilder bankAccountDTO = BankAccountDTO.builder();
 
-        bankAccountDTO.bankAccountId( bankAccount.getBankAccountId() );
-        bankAccountDTO.accountNumber( bankAccount.getAccountNumber() );
-        bankAccountDTO.bankName( bankAccount.getBankName() );
-        bankAccountDTO.bankAddress( bankAccount.getBankAddress() );
-        bankAccountDTO.swiftCode( bankAccount.getSwiftCode() );
-        bankAccountDTO.accountType( bankAccount.getAccountType() );
         bankAccountDTO.accountDni( bankAccount.getAccountDni() );
+        bankAccountDTO.accountNumber( bankAccount.getAccountNumber() );
+        bankAccountDTO.accountType( bankAccount.getAccountType() );
+        bankAccountDTO.bankAddress( bankAccount.getBankAddress() );
+        bankAccountDTO.bankName( bankAccount.getBankName() );
+        bankAccountDTO.swiftCode( bankAccount.getSwiftCode() );
 
         return bankAccountDTO.build();
     }

@@ -1,12 +1,11 @@
-package dev.exchange.exchangeproject.inputs;
+package dev.exchange.exchangeproject.inputs.BankAccount;
 
 import dev.exchange.exchangeproject.models.Transaction;
 import dev.exchange.exchangeproject.models.enums.AccountType;
 
 import java.util.List;
 
-public record UpdateBankAccountInput(
-        String id,
+public record CreateBankAccountInput(
         String accountNumber,
         String bankName,
         String bankAddress,
